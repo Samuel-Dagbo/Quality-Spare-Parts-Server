@@ -6,7 +6,7 @@ const AdminOrders = () => {
   const [loading, setLoading] = useState(true);
 
   // Replace with your actual backend URL
-  const API_URL = 'http://localhost:5000/api/v1/orders'; 
+  const API_URL = 'https://quality-spare-parts-server.onrender.com/api/v1/orders'; 
 
   useEffect(() => {
     fetchOrders();
@@ -78,9 +78,9 @@ const AdminOrders = () => {
                     {order.items?.map((item) => (
                       <div key={item._id} className="flex items-center gap-2">
                         <img 
-                          src={`http://localhost:5000/${item.product?.images?.[0]}`} 
+                          src={`https://quality-spare-parts-server.onrender.com/${item.product?.images?.[0]}`} 
                           alt={item.name} 
-                          className="w-10 h-10 object-cover rounded border"
+                          className="w-12 h-12 object-cover rounded-lg border-2 shadow-md flex-shrink-0"
                         />
                         <div>
                           <p className="font-semibold">{item.name}</p>
