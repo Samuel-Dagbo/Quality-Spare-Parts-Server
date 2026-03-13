@@ -6,7 +6,11 @@ const InventoryLog = require("../middleware/models/InventoryLog");
 
 const listOrders = async (req, res) => {
   const query = req.user.role === "customer" ? { user: req.user._id } : {};
-  const items = await Order.find(query).sort({ createdAt: -1 }).limit(200);
+  const items = await Order.find(query)
+    .populate('user', 'name email phone role')
+    .populate('items.product', 'name sku price images')
+    .sort({ createdAt: -1 })
+    .limit(200);
   res.json({ data: items });
 };
 

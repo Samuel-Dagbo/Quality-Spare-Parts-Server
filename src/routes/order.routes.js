@@ -16,6 +16,7 @@ router.get("/", requireAuth, listOrders);
 router.get("/:id", requireAuth, getOrder);
 router.post("/", requireAuth, validate(orderSchema), createOrder);
 router.post("/quick-sale", requireAuth, requireRole("staff", "admin"), validate(quickSaleSchema), createQuickSale);
+router.get("/admin/all", requireAuth, requireRole("admin", "staff"), listOrders);
 router.patch(
   "/:id/status",
   requireAuth,
