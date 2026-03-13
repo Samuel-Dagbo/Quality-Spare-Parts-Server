@@ -84,14 +84,14 @@ const AdminOrders = () => {
                         />
                         <div>
                           <p className="font-semibold">{item.name}</p>
-                          <p className="text-xs">Qty: {item.quantity} | Price: ${item.price}</p>
+                          <p className="text-xs">Qty: {item.quantity} | Price: GH₵{item.price}</p>
                         </div>
                       </div>
                     )) || 'No items'}
                   </div>
                 </td>
                 <td className="py-3 px-6 text-center">
-                  ${order.grandTotal}
+                  GH₵{order.grandTotal}
                 </td>
                 <td className="py-3 px-6 text-center">
                   <span className={`py-1 px-3 rounded-full text-xs 
